@@ -2,6 +2,12 @@
 
 Basic action template for node projects
 
+## Jobs
+
+- [x] type check with `npm run type-check`
+- [x] lint with `npm run lint`
+- [x] test with `npm run test`
+
 ---
 
 > [sqrtthree.com](https://sqrtthree.com/) &nbsp;&middot;&nbsp;
