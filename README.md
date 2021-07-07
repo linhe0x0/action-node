@@ -1,6 +1,6 @@
 # action-node
 
-Basic action template for node projects
+Basic action template for node projects. [details](.github/workflows/main.yml)
 
 ## Jobs
 
