@@ -1,0 +1,17 @@
+{
+  "name": "action-node",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Basic action template for node projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sqrthree/action-node.git"
+  },
+  "keywords": [],
+  "author": "sqrtthree <imsqrtthree@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sqrthree/action-node/issues"
+  },
+  "homepage": "https://github.com/sqrthree/action-node#readme"
+}
