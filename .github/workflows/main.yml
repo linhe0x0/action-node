@@ -1,49 +1,54 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Default CI
+name: Default
 
 # Triggers the workflow on push or pull request events
-on: [push, pull_request]
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
 
 jobs:
   lint:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout latest changes
+      - name: 🏗 Setup Repo
         uses: actions/checkout@v3
-      - name: Setpu Node
+
+      - name: 🏗 Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
           cache: "npm"
-      - name: Install Dependencies
+
+      - name: 📦 Install Dependencies
         run: npm ci
-      - name: Run lint script
+
+      - name: 🚨 Lint changes
         run: |
           npm run type-check --if-present
           npm run lint --if-present
 
   test:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["lts/*", "latest"] # LTS and latest version. https://github.com/nodejs/Release#release-schedule
+        node: ["lts/*", "latest"] # LTS and latest version. Check out https://github.com/nodejs/Release#release-schedule to get more details.
     name: test with node@${{ matrix.node }}
-    # Steps represent a sequence of tasks that will be executed as part of the job
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout latest changes
+      - name: 🏗 Setup Repo
         uses: actions/checkout@v3
-      - name: Setpu Node
+
+      - name: 🏗 Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
           cache: "npm"
-      - name: Install Dependencies
+
+      - name: 📦 Install Dependencies
         run: npm ci
-      - name: Run test script
+
+      - name: ✅ Test changes
         run: npm run test --if-present
